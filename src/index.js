@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom';
 
 import Showcase from './Showcase/Showcase';
 
+import ReactMarkdown from 'react-markdown';
+
+const sampleMarkdown = '# This is a header\n\nAnd this is a paragraph'
+
 function SampleComponent() {
     return (
         <div>
@@ -21,12 +25,30 @@ const articleStyles = {
     margin: '30px 20px'
 };
 
+const propertiesToIgnoreForMarkdown = [
+    'renderers',
+    'escapeHtml',
+    'skipHtml',
+    'sourcePos',
+    'rawSourcePos',
+    'transformLinkUri',
+    'astPlugins',
+    'plugins',
+    'parserOptions'
+];
+
 ReactDOM.render(
     <main>
         <article style={articleStyles}>
-            <h2>Just basic html</h2>
+            <h2>Just a sample component</h2>
             <Showcase>
                 <SampleComponent />
+            </Showcase>
+        </article>
+        <article style={articleStyles}>
+            <h2>ReactMarkdown</h2>
+            <Showcase ignore={propertiesToIgnoreForMarkdown}>
+                <ReactMarkdown source={sampleMarkdown} />
             </Showcase>
         </article>
     </main>,
