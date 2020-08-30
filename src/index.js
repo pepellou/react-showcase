@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Showcase from './Showcase/Showcase';
-
 import ReactMarkdown from 'react-markdown';
+import Cards from 'react-credit-cards';
+import 'react-credit-cards/es/styles-compiled.css';
+
+import Showcase from './Showcase/Showcase';
 
 const sampleMarkdown = '# This is a header\n\nAnd this is a paragraph'
 
@@ -37,6 +39,13 @@ const propertiesToIgnoreForMarkdown = [
     'parserOptions'
 ];
 
+const propertiesToIgnoreForCards = [
+    'acceptedCards',
+    'locale',
+    'placeholders',
+    'preview'
+];
+
 ReactDOM.render(
     <main>
         <article style={articleStyles}>
@@ -49,6 +58,18 @@ ReactDOM.render(
             <h2>ReactMarkdown</h2>
             <Showcase ignore={propertiesToIgnoreForMarkdown}>
                 <ReactMarkdown source={sampleMarkdown} />
+            </Showcase>
+        </article>
+        <article style={articleStyles}>
+            <h2>Credit Cards</h2>
+            <Showcase ignore={propertiesToIgnoreForCards}>
+                <Cards
+                    cvc=''
+                    expiry='7/22'
+                    focused=''
+                    name='JOHN DOE'
+                    number='1234567812345678'
+                    />
             </Showcase>
         </article>
     </main>,
