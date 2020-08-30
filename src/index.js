@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Showcase from './Showcase/Showcase';
-
 import ReactMarkdown from 'react-markdown';
+import Cards from 'react-credit-cards';
+
+import Showcase from './Showcase/Showcase';
 
 const sampleMarkdown = '# This is a header\n\nAnd this is a paragraph'
 
@@ -49,6 +50,27 @@ ReactDOM.render(
             <h2>ReactMarkdown</h2>
             <Showcase ignore={propertiesToIgnoreForMarkdown}>
                 <ReactMarkdown source={sampleMarkdown} />
+            </Showcase>
+        </article>
+        <article style={articleStyles}>
+            <h2>Credit Cards</h2>
+            <Showcase>
+                <div id="PaymentForm">
+                    <Cards
+                        cvc=''
+                        expiry=''
+                        focused=''
+                        name=''
+                        number=''
+                        />
+                    <form>
+                        <input
+                            type="tel"
+                            name="number"
+                            placeholder="Card Number"
+                            />
+                    </form>
+                </div>
             </Showcase>
         </article>
     </main>,
