@@ -49,6 +49,11 @@ ReactDOM.render(
                 number='1234567812345678'
                 />
         </Showcase>
+        <Showcase name="Showcase" source="https://github.com/pepellou/react-showcase">
+            <Showcase name="HelloWorld">
+                <HelloWorld />
+            </Showcase>
+        </Showcase>
     </main>,
     document.getElementById('root')
 );
