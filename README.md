@@ -35,6 +35,11 @@ ReactDOM.render(
 );
 ```
 
+That will render:
+
+![screenshot of the Showcase component displaying a HelloWorld and the Showcase component itself](screenshot.png)
+
+
 ## Options
 
 - `name` - _string_ The name of the React Component to showcase (**required**)
