@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Showcase",
+  "name": "React component that showcases a React component's code with its output",
   "icons": [
     {
       "src": "favicon.ico",
