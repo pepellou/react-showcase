@@ -30,15 +30,41 @@ ${Array(counter).join(" ")}</${type}>`;
     return `<${type}${propsString} />`;
 }
 
+function ShowcaseTitle(props) {
+    const name = props.name || '';
+    const source = props.source || null;
+    if (source === null) {
+        return (
+            <h2>{name}</h2>
+        );
+    }
+    return (
+        <h2><a target="_blank" href={source}>{name}</a></h2>
+    );
+}
+
 function Showcase(props) {
     const keysToIgnore = props.ignore || [];
+    const name = props.name || '';
+    const source = props.source || null;
+    const articleStyles = {
+        width: '80%',
+        border: '1px solid #888',
+        padding: '15px 30px',
+        borderRadius: '10px',
+        boxShadow: 'black 10px 10px 24px',
+        margin: '30px auto'
+    };
+
     return (
-        <div>
+        <article style={articleStyles}>
+            <ShowcaseTitle name={name} source={source} />
             <SyntaxHighlighter language="jsx" style={dark}>
                 {JsxString(props.children, keysToIgnore)}
             </SyntaxHighlighter>
+            <hr />
             {props.children}
-        </div>
+        </article>
     );
 }
 

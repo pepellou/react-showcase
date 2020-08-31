@@ -7,25 +7,11 @@ import 'react-credit-cards/es/styles-compiled.css';
 
 import Showcase from './Showcase/Showcase';
 
-const sampleMarkdown = '# This is a header\n\nAnd this is a paragraph'
+const sampleMarkdown = '# This is a header\n\nAnd this is a paragraph\n - Bullet item 1\n - Bullet item 2'
 
-function SampleComponent() {
-    return (
-        <div>
-            <p> Hi there </p>
-            <p> This is just plain HTML </p>
-        </div>
-    );
+function HelloWorld() {
+    return ( <p> Hello world </p> );
 }
-
-const articleStyles = {
-    float: 'left',
-    border: '1px solid #888',
-    padding: '15px 30px',
-    borderRadius: '10px',
-    boxShadow: 'black 10px 10px 24px',
-    margin: '30px 20px'
-};
 
 const propertiesToIgnoreForMarkdown = [
     'renderers',
@@ -48,30 +34,21 @@ const propertiesToIgnoreForCards = [
 
 ReactDOM.render(
     <main>
-        <article style={articleStyles}>
-            <h2>Just a sample component</h2>
-            <Showcase>
-                <SampleComponent />
-            </Showcase>
-        </article>
-        <article style={articleStyles}>
-            <h2>ReactMarkdown</h2>
-            <Showcase ignore={propertiesToIgnoreForMarkdown}>
-                <ReactMarkdown source={sampleMarkdown} />
-            </Showcase>
-        </article>
-        <article style={articleStyles}>
-            <h2>Credit Cards</h2>
-            <Showcase ignore={propertiesToIgnoreForCards}>
-                <Cards
-                    cvc=''
-                    expiry='7/22'
-                    focused=''
-                    name='JOHN DOE'
-                    number='1234567812345678'
-                    />
-            </Showcase>
-        </article>
+        <Showcase name="HelloWorld">
+            <HelloWorld />
+        </Showcase>
+        <Showcase name="ReactMarkdown" source="https://github.com/rexxars/react-markdown" ignore={propertiesToIgnoreForMarkdown}>
+            <ReactMarkdown source={sampleMarkdown} />
+        </Showcase>
+        <Showcase name="Cards" source="https://github.com/amarofashion/react-credit-cards" ignore={propertiesToIgnoreForCards}>
+            <Cards
+                cvc=''
+                expiry='7/22'
+                focused=''
+                name='JOHN DOE'
+                number='1234567812345678'
+                />
+        </Showcase>
     </main>,
     document.getElementById('root')
 );
